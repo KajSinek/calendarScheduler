@@ -1,0 +1,127 @@
+:root {
+    --online: #44b700;
+    --offline: #b74400;
+}
+
+.error {
+    margin: 0.5rem;
+    color: red;
+    text-align: center;
+}
+  
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    
+    body {
+        font-family: 'Roboto';
+        font-size: 16px;
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+
+        .App {
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .header {
+                width: 100% !important;
+                padding: 0 1rem !important;
+                background-color: whitesmoke !important;
+                color: black !important;
+              
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
+
+            & > div {
+                width: 80%;
+
+                @media screen and (max-width: 600px) {
+                    width: 95%;
+                }
+
+                & > ul {
+                    list-style-type: none;
+                    li {
+                        display: inline-block;
+                        margin-right: 5px;
+                        .box {
+                            float: left;
+                            height: 10px;
+                            width: 10px;
+                            margin-top: 6px;
+                            margin-right: 5px;
+                            border: 1px solid black;
+                            clear: both;
+                        }
+
+                        .red {
+                            background-color: #FF5C5D;
+                        }
+
+                        .yellow {
+                            background-color: #F29D00;
+                        }
+
+                        .gray {
+                            background-color: #eee;
+                        }
+                        
+                        .blue {
+                            background-color: #1976d2;
+                        }
+                    }
+                }
+                .MuiButton-textInherit {
+                    display: none;
+                }
+            }
+            .css-m1a27h {
+                .rs__outer_table{
+                    height: 500px;
+                    overflow: scroll;
+                }
+                div {
+                    div {
+                        button {
+                            &:first-child {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .rs__popper_actions {
+            & > div {
+                &:nth-child(2) {
+                    & > button {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .admin-edit {
+            display: none
+        }
+
+        #__react-alert__ {
+            div {
+                z-index: 99999 !important;
+            }
+        }
+    }
+}

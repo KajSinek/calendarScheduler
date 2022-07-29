@@ -130,7 +130,7 @@ exports.disabledButton = (
       (hour === 16 && minutes === 0) ||
       !arrOdd.includes(hour) ||
       (getNumberOfWeek(start, month) % 2 === 1 && start.getDay() === 6) ||
-      tomorrowISO >= calendarDate;
+      tomorrowISO > calendarDate;
     disabledHour = !arrOdd.includes(hour);
     disabledPause = hour === 16 && minutes === 0;
   }

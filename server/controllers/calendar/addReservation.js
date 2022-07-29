@@ -54,8 +54,8 @@ exports.calendarGetReservation = async function (req, res) {
 
   try {
     // Get account from DB, and verify existance
-    const foundAccount = await Calendaradd.find({});
-    if (!foundAccount) {
+    const reservations = await Calendaradd.find({});
+    if (!reservations) {
       return res.status(400).json({
         message: "Bad credentials",
       });
@@ -63,7 +63,7 @@ exports.calendarGetReservation = async function (req, res) {
 
     res.status(200).json({
       message: "Succesfully generated calendar data",
-      data: foundAccount,
+      data: reservations,
     });
   } catch (error) {
     console.error(error);
@@ -93,16 +93,11 @@ exports.calendarGetReservationsWeek = async function (req, res) {
   try {
     // Get account from DB, and verify existance
 
-    const foundAccount = await Calendaradd.find({ dateStart: { $in: week } });
-    if (!foundAccount) {
-      return res.status(400).json({
-        message: "Bad credentials",
-      });
-    }
+    const reservations = await Calendaradd.find({ dateStart: { $in: week } });
 
     res.status(201).json({
       message: "Succesfully generated calendar data",
-      data: foundAccount,
+      data: reservations,
     });
   } catch (error) {
     console.error(error);
@@ -132,18 +127,13 @@ exports.calendarGetReservationsWeekEmail = async function (req, res) {
   try {
     // Get account from DB, and verify existance
 
-    const foundAccount = await Calendaradd.find({
+    const reservation = await Calendaradd.find({
       $and: [{ dateStart: { $in: week } }, { email: { $eq: email } }],
     });
-    if (!foundAccount) {
-      return res.status(400).json({
-        message: "Bad credentials",
-      });
-    }
 
     res.status(201).json({
       message: "Succesfully generated calendar data",
-      data: foundAccount,
+      data: reservation,
     });
   } catch (error) {
     console.error(error);
@@ -159,18 +149,13 @@ exports.calendarGetReservationEmailSingle = async function (req, res) {
   try {
     // Get account from DB, and verify existance
 
-    const foundAccount = await Calendaradd.find({
+    const reservation = await Calendaradd.find({
       $and: [{ dateStart: { $eq: dateStart } }, { email: { $eq: email } }],
     });
-    if (!foundAccount) {
-      return res.status(400).json({
-        message: "Bad credentials",
-      });
-    }
 
     res.status(201).json({
       message: "Succesfully generated calendar data",
-      data: foundAccount,
+      data: reservation,
     });
   } catch (error) {
     console.error(error);

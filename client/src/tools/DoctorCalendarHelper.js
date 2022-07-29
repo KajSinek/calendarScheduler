@@ -186,7 +186,7 @@ exports.isValidEmail = (email) => {
 };
 
 exports.onlyLetters = (name) => {
-  return /^[a-zA-Z]+$/.test(name);
+  return /^[a-zA-Z\s+\u00C0-\u00ff]+$/.test(name);
 };
 
 export default exports;

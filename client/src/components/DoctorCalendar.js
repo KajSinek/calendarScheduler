@@ -193,16 +193,18 @@ export default function DoctorCalendar() {
             let arrEven = [8, 9, 10, 11, 12, 13];
             let arrOdd = [13, 14, 15, 16, 17, 18];
             let month = start.getMonth() + 1;
-            let date = start.getDate() + 1;
+            let date = start.getDate();
             const hour = start.getHours();
             const minutes = start.getMinutes();
             let disabled, disabledHour, disabledPause;
             let tomorrowISO = tomorrow.toISOString().slice(0, 10);
+            date += 1;
             let calendarDate = new Date(
               start.getFullYear() + "-" + month + "-" + date
             )
               .toISOString()
               .slice(0, 10);
+            date -= 1;
 
             let values = disabledButton(
               dayOfWeekDigit,
